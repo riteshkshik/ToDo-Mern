@@ -1,0 +1,16 @@
+npm init => used to create package.json file
+npx create-react-app client => used to create new react app
+npm i express mongoose cors => used to install neccessary libraries and frameworks
+npm i -D nodemon => used to install development dependencies
+npm start => used to run script written in package.json
+
+
+
+
+
+
+
+
+mongodb://127.0.0.1:27017/
+
+45

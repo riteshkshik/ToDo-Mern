@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
-const API_BASE = "http://localhost:3001";
+const API_BASE = "https://todo-mern-peik.onrender.com";
+// const API_BASE = "http://localhost:3001";
 
 function App() {
 
@@ -15,15 +16,17 @@ function App() {
   }, []);
 
   const GetTodos = () => {
-    fetch("http://localhost:3001/todos")
-      .then((res) =>{
+    fetch(`${API_BASE}/todos`)
+      .then((res) => {
         // console.log(res);
         return res.json();
-      }).then((data) => setTodos(data)).catch(err => console.error("error: ", err));
+      })
+      .then((data) => setTodos(data))
+      .catch((err) => console.error("error: ", err));
   }
 
   function completeTodo(todoId){
-    fetch(`http://localhost:3001/todo/complete/${todoId}`,{method: 'PUT'})
+    fetch(`${API_BASE}/todo/complete/${todoId}`,{method: 'PUT'})
       .then(res =>{
         return res.json();
       })
@@ -40,7 +43,7 @@ function App() {
   }
 
   const AddTodo = async () => {
-    const data = await fetch("http://localhost:3001/todo/new", {
+    const data = await fetch(`${API_BASE}/todo/new`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -57,7 +60,7 @@ function App() {
 
   function deleteTodo(todoId, event){
     event.stopPropagation();
-    fetch(`http://localhost:3001/todo/delete/${todoId}`,{method: 'DELETE'})
+    fetch(`${API_BASE}/todo/delete/${todoId}`,{method: 'DELETE'})
       .then(res =>{
         return res.json();
       })

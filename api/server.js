@@ -7,10 +7,16 @@ const app = express();
 app.use(express.json());   /// helps to handle res.json() data coming inside the body
 app.use(cors());
 
-mongoose.connect("mongodb://127.0.0.1:27017/mern-todo",{
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-}).then(() => console.log("Connected To DB")).catch(console.error);
+mongoose
+  .connect(
+    "mongodb+srv://riteshkshik:Ri686313@cluster0.kas7p2e.mongodb.net/",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  )
+  .then(() => console.log("Connected To DB"))
+  .catch(console.error);
 
 const Todo = require('./models/Todo');
 
